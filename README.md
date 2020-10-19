@@ -1,2 +1,2 @@
 # pdb.conf
-A python debugging configuration 
+A python debugging configuration.
