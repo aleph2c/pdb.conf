@@ -1,6 +1,12 @@
+import sys
 import rlcompleter
 import readline
+import pdb
+
 pdb.Pdb.complete = rlcompleter.Completer(locals()).complete
+
+def xpp(element): exec("try:\n from lxml import etree\n print(etree.tostring(element, pretty_print=True, encoding='unicode'))\nexcept ImportError:\n print('lxml package is not installed.')")
 
 alias nl n;;ll
 alias sl s;;ll
+
