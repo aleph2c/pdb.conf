@@ -1,12 +1,19 @@
+import os
 import sys
-import rlcompleter
-import readline
 import pdb
+import readline
+import rlcompleter
+
+# Dynamically build the path to pdb_config.py
+pdb_config_path = os.path.join(os.path.expanduser('~'), '.pdbrc_repo')
+sys.path.append(pdb_config_path)
+
+# Load the pdb_config.py script
+from pdb_config import xpp
 
 pdb.Pdb.complete = rlcompleter.Completer(locals()).complete
 
-def xpp(element): exec("try:\n from lxml import etree\n print(etree.tostring(element, pretty_print=True, encoding='unicode'))\nexcept ImportError:\n print('lxml package is not installed.')")
-
+# Define aliases
 alias nl n;;ll
 alias sl s;;ll
 
